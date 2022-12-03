@@ -1,61 +1,49 @@
 package com.driver;
 
+import java.util.*;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
-@Component
 @Service
 public class MovieService {
 
     @Autowired
-    MovieRepository movierepository;
+    MovieRepository movieRepository;
 
-    public void addMovie(Movie movie)
-    {
-        movierepository.addMovietoDB(movie);
+    public void addMovie(Movie movie){
+        movieRepository.addMovieRepo(movie);
     }
 
-    public void addDirector(Director director)
-    {
-        movierepository.addDirectortoDB(director);
+    public void addDirector(Director director){
+        movieRepository.addDirectorRepo(director);
     }
 
-    public void addMovieDirectorPair(String movie,String director)
-    {
-        return movierepository.addMovieDirectorPairtoDB(director);
+    public void addMovieDirectorPairService(String movie, String director){
+        movieRepository.addMovieDirectorPairRepo(movie, director);
     }
 
-    public Movie getMovieByName(String name)
-    {
-        return movierepository.getMovieByNametoDB(name);
+    public Movie getMovieByNameService(String movieName){
+        return movieRepository.getMovieByNameRepo(movieName);
     }
 
-    public Director getDirectorByName(String name)
-    {
-        return movierepository.getDirectorByNametoDB(name);
+    public Director getDirectorByNameService(String directorName){
+        return movieRepository.getDirectorByNameRepo(directorName);
     }
 
-    public List<String> getMoviesByDirectorName(String director)
-    {
-        return movierepository.getMoviesByDirectorNametoDB(director);
+    public List<String> getMoviesByDirectorNameService(String director){
+        return movieRepository.getMoviesByDirectorNameRepo(director);
     }
 
-    public List<String> findAllMovies()
-    {
-        return movierepository.findAllMoviestoDB();
+    public List<String> findAllMoviesService(){
+        return movieRepository.findAllMoviesRepo();
     }
 
-    public void deleteDirectorByName(String director)
-    {
-        movierepository.deleteDirectorByNametoDB(director);
+    public void deleteDirectorByNameService(String director){
+        movieRepository.deleteDirectorByNameRepo(director);
     }
 
-    public void deleteAllDirectors()
-    {
-        movierepository.deleteAllDirectorstoDB();
+    public void deleteAllDirectorsService(){
+        movieRepository.deleteAllDirectorRepo();
     }
-
 }
